@@ -1,5 +1,5 @@
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
+import java.util.Arrays;
+
 public class Main {
     public static void main(String[] args) {
         printThreeWords();
@@ -8,15 +8,15 @@ public class Main {
         compareNumbers();
         isSumInBetween();
         printSign(5);
-        isNegative(-1);
+        isNegative(-5);
         printStringMultipleTimes("banana", 5);
         isLeap(2000);
         arrayReplace();
-        //fillingArr();
+        fillingArr();
         multiplyArr();
-
+        fillDiagonalsArray1();
+        createArray(5, 2);
     }
-
 
     public static void printThreeWords() {
         System.out.println("Задание 1:");
@@ -107,17 +107,17 @@ public class Main {
             } else if (arr[i] == 1) {
                 arr[i] = 0;
             }
-            System.out.print(arr[i]);
         }
+        System.out.println(Arrays.toString(arr));
     }
 
     public static void fillingArr() {
         System.out.println("Задание 11:");
         int[] arr = new int[100];
-        for (int i = 1; i <= 101; i++) {
-            arr[i] = i;
-            System.out.println(arr[i]);
+        for (int i = 0; i < 100; i++) {
+            arr[i] = i + 1;
         }
+        System.out.println(Arrays.toString(arr));
     }
 
     public static void multiplyArr() {
@@ -127,7 +127,41 @@ public class Main {
             if (arr[i] < 6) {
                 arr[i] = arr[i] * 2;
             }
-            System.out.print(arr[i]);
+        }
+        System.out.println(Arrays.toString(arr));
+    }
+
+    private static void fillDiagonalsArray1(){
+        System.out.println("Задание 13:");
+        final int volum = 6;
+        int[][] square = new int[volum][volum];
+        for (int i=0; i<volum; i++){
+            for (int j=0; j<volum; j++){
+                if((i==j) || (i+j==volum-1)){
+                    square[i][j]=1;
+                } else {
+                    square[i][j]=0;
+                }
+            }
+        }
+        for(int i=0; i<volum; i++) {
+            for (int j=0; j<volum; j++) {
+                System.out.print(square[i][j]);
+            }
+            System.out.println("\t");
         }
     }
-}
+
+    private static int[] createArray(int len, int initialValue){
+        System.out.println("Задание 14:");
+        if(len <= 0){
+            return null;
+        }
+        int[] result = new int[len];
+        for (int i = 0; i < len; i++){
+            result[i] = initialValue;
+        }
+        System.out.println(Arrays.toString(result));
+        return result;
+    };
+};
